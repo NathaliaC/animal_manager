@@ -1,0 +1,18 @@
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  database: 'animal_manager_development'
+  user: postgres
+
+development:
+  <<: *postgresql
+  database: animal_manager_development
+
+test:
+  <<: *postgresql
+  database: animal_manager_test
+
+production:
+  <<: *postgresql
